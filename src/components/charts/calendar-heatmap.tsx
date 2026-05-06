@@ -31,9 +31,10 @@ export function CalendarHeatmap({ data, competitor = "all", height = 200 }: Prop
       height={height}
       option={{
         tooltip: {
-          formatter: (p: { value?: [string, number] }) => {
-            if (!p.value) return "";
-            const [date, count] = p.value;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          formatter: (p: any) => {
+            if (!p?.value || !Array.isArray(p.value)) return "";
+            const [date, count] = p.value as [string, number];
             return `${date}<br/><b>${count}</b>건`;
           },
         },

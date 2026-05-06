@@ -20,8 +20,9 @@ export function TreemapChart({ data, height = 320 }: Props) {
       height={height}
       option={{
         tooltip: {
-          formatter: (p: { name: string; value: number }) =>
-            `${p.name}: <b>${p.value}</b>`,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          formatter: (p: any) =>
+            `${p?.name ?? ""}: <b>${p?.value ?? 0}</b>`,
         },
         series: [
           {

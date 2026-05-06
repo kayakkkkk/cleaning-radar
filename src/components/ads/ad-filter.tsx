@@ -84,7 +84,7 @@ export function AdFilter({ value, onChange }: Props) {
         />
       </div>
 
-      <Select value={value.competitor} onValueChange={(v) => set("competitor", v)}>
+      <Select value={value.competitor} onValueChange={(v) => set("competitor", v ?? "all")}>
         <SelectTrigger className="h-9 w-[140px]">
           <SelectValue>{(v: string) => competitorLabels[v] ?? "모든 경쟁사"}</SelectValue>
         </SelectTrigger>
@@ -96,7 +96,7 @@ export function AdFilter({ value, onChange }: Props) {
         </SelectContent>
       </Select>
 
-      <Select value={value.platform} onValueChange={(v) => set("platform", v)}>
+      <Select value={value.platform} onValueChange={(v) => set("platform", v ?? "all")}>
         <SelectTrigger className="h-9 w-[120px]">
           <SelectValue>{(v: string) => platformLabels[v] ?? "모든 플랫폼"}</SelectValue>
         </SelectTrigger>
@@ -109,7 +109,7 @@ export function AdFilter({ value, onChange }: Props) {
         </SelectContent>
       </Select>
 
-      <Select value={value.format} onValueChange={(v) => set("format", v)}>
+      <Select value={value.format} onValueChange={(v) => set("format", v ?? "all")}>
         <SelectTrigger className="h-9 w-[120px]">
           <SelectValue>{(v: string) => formatLabels[v] ?? "모든 형식"}</SelectValue>
         </SelectTrigger>
@@ -121,7 +121,7 @@ export function AdFilter({ value, onChange }: Props) {
         </SelectContent>
       </Select>
 
-      <Select value={value.status} onValueChange={(v) => set("status", v)}>
+      <Select value={value.status} onValueChange={(v) => set("status", v ?? "all")}>
         <SelectTrigger className="h-9 w-[110px]">
           <SelectValue>{(v: string) => statusLabels[v] ?? "전체 상태"}</SelectValue>
         </SelectTrigger>
@@ -132,7 +132,7 @@ export function AdFilter({ value, onChange }: Props) {
         </SelectContent>
       </Select>
 
-      <Select value={value.sort} onValueChange={(v) => set("sort", v)}>
+      <Select value={value.sort} onValueChange={(v) => set("sort", v ?? "latest")}>
         <SelectTrigger className="h-9 w-[140px]">
           <SelectValue>{(v: string) => sortLabels[v] ?? "최신순"}</SelectValue>
         </SelectTrigger>

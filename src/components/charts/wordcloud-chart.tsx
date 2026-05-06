@@ -47,8 +47,9 @@ export function WordCloudChart({ data, competitor, height = 280 }: Props) {
           top: 0,
         },
         tooltip: {
-          formatter: (p: { name: string; value: number }) =>
-            `${p.name}: <b>${p.value}</b>회`,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          formatter: (p: any) =>
+            `${p?.name ?? ""}: <b>${p?.value ?? 0}</b>회`,
         },
         series: [
           {
